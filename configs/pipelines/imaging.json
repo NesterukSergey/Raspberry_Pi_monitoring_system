@@ -1,0 +1,40 @@
+{
+  "name": "imaging",
+  "run_interval": {
+    "trigger": "cron",
+    "second": null,
+    "minute": "*/30",
+    "hour": null,
+    "day_of_week": null
+  },
+  "pipeline": [
+    {
+      "task_type": "actuator",
+      "sensor_name": "alarm_b",
+      "cmd": "blink",
+      "params": {
+        "repeats": 4,
+        "t": 0.5
+      }
+    },
+    {
+      "task_type": "actuator",
+      "sensor_name": "alarm_b",
+      "cmd": "on",
+      "params": {}
+    },
+    {
+      "task_type": "sleep",
+      "interval_seconds": 4
+    },
+    {
+      "task_type": "get_images"
+    },
+    {
+      "task_type": "actuator",
+      "sensor_name": "alarm_b",
+      "cmd": "off",
+      "params": {}
+    }
+  ]
+}

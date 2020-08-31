@@ -1,0 +1,121 @@
+{
+  "name": "rpi",
+  "description": "Generic Raspberry Pi 3B/B+",
+  "naming": "bcm",
+  "pins": {
+    "2": {
+      "loc": 3,
+      "type": ["digital", "sda1", "i2c"]
+    },
+    "3": {
+      "loc": 5,
+      "type": ["digital", "scl1", "i2c"]
+    },
+    "4": {
+      "loc": 7,
+      "type": ["digital"]
+    },
+    "14": {
+      "loc": 8,
+      "type": ["digital", "uart0_txd"]
+    },
+    "15": {
+      "loc": 10,
+      "type": ["digital", "uart0_rxd"]
+    },
+    "17": {
+      "loc": 11,
+      "type": ["digital"]
+    },
+    "18": {
+      "loc": 12,
+      "type": ["digital", "pcm_clk"]
+    },
+    "27": {
+      "loc": 13,
+      "type": ["digital"]
+    },
+    "22": {
+      "loc": 15,
+      "type": ["digital"]
+    },
+    "23": {
+      "loc": 16,
+      "type": ["digital"]
+    },
+    "24": {
+      "loc": 18,
+      "type": ["digital"]
+    },
+    "10": {
+      "loc": 19,
+      "type": ["digital", "spi0_mosi"]
+    },
+    "9": {
+      "loc": 21,
+      "type": ["digital", "spi0_miso"]
+    },
+    "25": {
+      "loc": 22,
+      "type": ["digital"]
+    },
+    "11": {
+      "loc": 23,
+      "type": ["digital", "spi0_sclk"]
+    },
+    "8": {
+      "loc": 24,
+      "type": ["digital", "spi0_ce0_n"]
+    },
+    "7": {
+      "loc": 26,
+      "type": ["digital", "spi0_ce1_n"]
+    },
+    "id_sd": {
+      "loc": 27,
+      "type": ["i2c", "id", "eeprom"]
+    },
+    "id_sc": {
+      "loc": 28,
+      "type": ["i2c", "id", "eeprom"]
+    },
+    "5": {
+      "loc": 29,
+      "type": ["digital"]
+    },
+    "6": {
+      "loc": 31,
+      "type": ["digital"]
+    },
+    "12": {
+      "loc": 32,
+      "type": ["digital"]
+    },
+    "13": {
+      "loc": 33,
+      "type": ["digital"]
+    },
+    "19": {
+      "loc": 35,
+      "type": ["digital"]
+    },
+    "16": {
+      "loc": 36,
+      "type": ["digital"]
+    },
+    "26": {
+      "loc": 37,
+      "type": ["digital"]
+    },
+    "20": {
+      "loc": 38,
+      "type": ["digital"]
+    },
+    "21": {
+      "loc": 40,
+      "type": ["digital"]
+    }
+  },
+  "pow_loc": [1, 2, 4, 17],
+  "gnd_loc": [6, 9, 14, 20, 25, 30, 34, 39]
+}

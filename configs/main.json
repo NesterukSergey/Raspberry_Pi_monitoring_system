@@ -1,0 +1,13 @@
+{
+  "project_name": "Peppers monitoring",
+  "logs_dir": "./logs",
+  "data_dir": "./data",
+  "cameras_config": "./configs/cameras.json",
+  "sensors_config": "./configs/sensors.json",
+  "pipelines": [
+    "./configs/pipelines/imaging.json",
+    "./configs/pipelines/sensing.json"
+  ],
+  "log_level": 20,
+  "board": "./configs/boards/rpi_board.json"
+}

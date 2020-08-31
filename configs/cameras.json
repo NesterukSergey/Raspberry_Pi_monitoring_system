@@ -1,0 +1,10 @@
+[
+  {
+    "id": "top",
+    "type": "rgb",
+    "device": "/dev/v4l/by-path/platform-3f980000.usb-usb-0:1.4:1.0-video-index0",
+    "width": 1920,
+    "height": 1080,
+    "focus_skip": 5
+  }
+]
