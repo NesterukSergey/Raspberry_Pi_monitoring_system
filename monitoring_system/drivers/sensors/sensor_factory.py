@@ -11,11 +11,20 @@ def sensor_factory(sensor_naming, sensors, log):
         'digital_read': DigitalReadSensor
     }
 
-    for sensor in sensors:
-        sensor_type = sensors[sensor]['type']
+    for sensor in sensors['sensors']:
+        sensor_type = sensors['sensors'][sensor]['type']
         if sensor_type not in list(sensor_types.keys()):
             log.error('Unrecognized sensor: ' + sensor_type)
         else:
-            d[sensor] = sensor_types[sensor_type](**sensors[sensor], pin_naming=sensor_naming, log=log)
+            d[sensor] = sensor_types[sensor_type](**sensors['sensors'][sensor],
+                                                  pin_naming=sensor_naming, log=log, board_type='')
+
+    for sensor in sensors['troyka_cap_ext_sensors']:
+        sensor_type = sensors['troyka_cap_ext_sensors'][sensor]['type']
+        if sensor_type not in list(sensor_types.keys()):
+            log.error('Unrecognized sensor: ' + sensor_type)
+        else:
+            d[sensor] = sensor_types[sensor_type](**sensors['troyka_cap_ext_sensors'][sensor],
+                                                  pin_naming=sensor_naming, log=log, board_type='troyka_cap_ext')
 
     return d

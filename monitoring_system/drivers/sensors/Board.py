@@ -9,7 +9,7 @@ class Board:
         self.sensor_naming = sensors['naming']
         self.sensors = sensors['sensors']
         self.pins = self._name2loc()
-        self.active_sensors = sensor_factory(self.sensor_naming, self.sensors, self.log)
+        self.active_sensors = sensor_factory(self.sensor_naming, sensors, self.log)
         write_txt('board.txt', self.print_board())
 
     def _name2loc(self):

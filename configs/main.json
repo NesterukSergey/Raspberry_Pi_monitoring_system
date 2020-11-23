@@ -3,7 +3,7 @@
   "logs_dir": "./logs",
   "data_dir": "./data",
   "cameras_config": "./configs/cameras.json",
-  "sensors_config": "./configs/sensors.json",
+  "sensors_config": "./configs/pml_sensors.json",
   "pipelines": [
     "./configs/pipelines/imaging.json",
     "./configs/pipelines/sensing.json"

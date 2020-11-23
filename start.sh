@@ -6,4 +6,4 @@ cd $DIR
 SCRIPT="main.py"
 echo "launching " $DIR$SCRIPT
 
-sudo python3 $SCRIPT
+sudo python3.7 $SCRIPT

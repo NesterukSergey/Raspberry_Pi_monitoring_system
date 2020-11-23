@@ -1,0 +1,17 @@
+{
+  "naming": "wpi",
+  "sensors": {
+    "alarm_b": {
+      "type": "switch",
+      "pin": 0,
+      "init": "off"
+    }
+  },
+  "troyka_cap_ext_sensors": {
+    "alarm_y": {
+      "type": "switch",
+      "pin": 4,
+      "init": "off"
+    }
+  }
+}

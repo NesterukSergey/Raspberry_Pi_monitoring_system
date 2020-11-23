@@ -10,29 +10,17 @@
   "pipeline": [
     {
       "task_type": "actuator",
-      "sensor_name": "alarm_g",
+      "sensor_name": "alarm_y",
       "cmd": "on",
       "params": {}
     },
     {
-      "task_type": "sensor",
-      "sensor_name": "t_h_1",
-      "cmd": "get_measurements",
-      "repeats": 25,
-      "repeat_interval": 0.1,
-      "params": {}
-    },
-    {
-      "task_type": "sensor",
-      "sensor_name": "digit_soil_hum",
-      "cmd": "get_measurements",
-      "repeats": 25,
-      "repeat_interval": 0.1,
-      "params": {}
+      "task_type": "sleep",
+      "interval_seconds": 2
     },
     {
       "task_type": "actuator",
-      "sensor_name": "alarm_g",
+      "sensor_name": "alarm_y",
       "cmd": "off",
       "params": {}
     }
