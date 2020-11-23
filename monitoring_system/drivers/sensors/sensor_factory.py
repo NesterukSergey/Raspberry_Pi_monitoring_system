@@ -1,6 +1,7 @@
 from monitoring_system.drivers.sensors.DigitalReadSensor import DigitalReadSensor
 from monitoring_system.drivers.sensors.SwitchSensor import SwitchSensor
 from monitoring_system.drivers.sensors.Dht11Sensor import Dht11Sensor
+from monitoring_system.drivers.sensors.AnalogReadSensor import AnalogReadSensor
 
 
 def sensor_factory(sensor_naming, sensors, log):
@@ -8,7 +9,8 @@ def sensor_factory(sensor_naming, sensors, log):
     sensor_types = {
         'switch': SwitchSensor,
         'dht11': Dht11Sensor,
-        'digital_read': DigitalReadSensor
+        'digital_read': DigitalReadSensor,
+        'analog_read': AnalogReadSensor,
     }
 
     for sensor in sensors['sensors']:

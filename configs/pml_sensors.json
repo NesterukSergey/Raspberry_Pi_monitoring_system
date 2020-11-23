@@ -12,6 +12,10 @@
       "type": "switch",
       "pin": 4,
       "init": "off"
+    },
+    "soil_humidity": {
+      "type": "analog_read",
+      "pin": 3
     }
   }
 }

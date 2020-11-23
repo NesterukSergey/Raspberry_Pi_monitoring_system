@@ -14,9 +14,17 @@
       "cmd": "on",
       "params": {}
     },
-    {
+     {
       "task_type": "sleep",
       "interval_seconds": 2
+    },
+    {
+      "task_type": "sensor",
+      "sensor_name": "soil_humidity",
+      "cmd": "get_measurements",
+      "repeats": 25,
+      "repeat_interval": 0.1,
+      "params": {}
     },
     {
       "task_type": "actuator",
