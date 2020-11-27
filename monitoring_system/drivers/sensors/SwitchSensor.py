@@ -6,7 +6,6 @@ from monitoring_system.drivers.sensors.Sensor import Sensor
 class SwitchSensor(Sensor):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.__dict__.update(kwargs)
         self.pin = self._get_wpi_pin(self.pin)
         self._register_pins([], [self.pin])
 

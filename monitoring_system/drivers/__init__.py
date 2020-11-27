@@ -1,1 +1,2 @@
-from monitoring_system.drivers.camera import RGBCameraDriver
+from monitoring_system.drivers.cameras import *
+from monitoring_system.drivers.sensors import *

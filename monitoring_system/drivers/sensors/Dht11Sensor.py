@@ -10,7 +10,6 @@ RPi.GPIO.cleanup()
 class Dht11Sensor(Sensor):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.__dict__.update(kwargs)
         self.detector = DHT11(self.pin)
 
     # def exit(self):

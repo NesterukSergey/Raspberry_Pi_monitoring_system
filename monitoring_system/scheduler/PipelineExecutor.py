@@ -106,7 +106,13 @@ class PipelineExecutor:
 
     def _get_images(self):
         for c in self.cam_config:
-            cam = RGBCameraDriver(c, self.main_config['data_dir'], self.log, self.datetime_prefix, self.datetime_dict)
+            cam = WebCameraDriver(
+                camera_info=c,
+                folder=self.main_config['data_dir'],
+                log=self.log,
+                datetime_prefix=self.datetime_prefix,
+                datetime_dict=self.datetime_dict
+            )
             cam.capture()
 
     def _actuating(self, *args, **kwargs):

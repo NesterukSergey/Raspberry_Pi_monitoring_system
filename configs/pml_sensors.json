@@ -5,6 +5,11 @@
       "type": "switch",
       "pin": 0,
       "init": "off"
+    },
+    "alarm_w": {
+      "type": "switch",
+      "pin": 6,
+      "init": "off"
     }
   },
   "troyka_cap_ext_sensors": {
