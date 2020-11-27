@@ -9,5 +9,6 @@
     "./configs/pipelines/sensing.json"
   ],
   "log_level": 20,
-  "board": "./configs/boards/rpi_board.json"
+  "board": "./configs/boards/rpi_board.json",
+  "imaging_states": "./configs/imaging_states.json"
 }

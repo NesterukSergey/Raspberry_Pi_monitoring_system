@@ -1,0 +1,12 @@
+{
+  "all_on": {
+    "alarm_w": {
+      "bool": true
+    }
+  },
+  "all_off": {
+    "alarm_w": {
+      "bool": false
+    }
+  }
+}

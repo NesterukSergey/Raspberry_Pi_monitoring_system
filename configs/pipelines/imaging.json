@@ -3,7 +3,7 @@
   "run_interval": {
     "trigger": "cron",
     "second": null,
-    "minute": "*/30",
+    "minute": "*/1",
     "hour": null,
     "day_of_week": null
   },
@@ -28,7 +28,18 @@
       "interval_seconds": 4
     },
     {
-      "task_type": "get_images"
+      "task_type": "switch_state",
+      "state_name": "all_on"
+    },
+    {
+      "task_type": "get_web_images"
+    },
+    {
+      "task_type": "switch_state",
+      "state_name": "all_off"
+    },
+    {
+      "task_type": "get_web_images"
     },
     {
       "task_type": "actuator",

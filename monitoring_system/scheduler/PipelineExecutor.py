@@ -65,6 +65,8 @@ class PipelineExecutor:
             'sensors/' + pipeline_name + '_measurements.csv')
         self.cam_config = read_json(self.main_config['cameras_config'])
         self.datetime_prefix, self.datetime_dict = get_time()
+        self.imaging_states = read_json(main_config['imaging_states'])
+        self.current_imaging_state = 'unset'
 
     def execute(self):
         pipeline_start = datetime.now()
@@ -89,7 +91,8 @@ class PipelineExecutor:
         return {
             'hello_world': lambda: self.log.debug('Hello world!'),  # Dummy task
             'sleep': self._sleep,
-            'get_images': self._get_images,
+            'switch_state': self._switch_state,
+            'get_web_images': self._get_web_images,
             'get_dummy': self._get_dummy,
             'actuator': self._actuating,
             'sensor': self._sensing,
@@ -104,16 +107,39 @@ class PipelineExecutor:
         time.sleep(interval_seconds)
         self.log.debug('Finish sleeping for ' + str(interval_seconds) + 's')
 
-    def _get_images(self):
+    def _switch_state(self, state_name):
+        self.current_imaging_state = state_name
+
+        for actuator in self.imaging_states[state_name]:
+
+            if 'bool' in self.imaging_states[state_name][actuator].keys():
+                cmd = 'on' if self.imaging_states[state_name][actuator]['bool'] else 'off'
+
+            self._actuating(
+                sensor_name=actuator,
+                cmd=cmd,
+                params={}
+            )
+
+            self.log.info('Switching state to: {}'.format(self.current_imaging_state))
+
+    def _get_web_images(self):
         for c in self.cam_config:
             cam = WebCameraDriver(
                 camera_info=c,
                 folder=self.main_config['data_dir'],
                 log=self.log,
                 datetime_prefix=self.datetime_prefix,
-                datetime_dict=self.datetime_dict
+                datetime_dict=self.datetime_dict,
+                system_state=self.current_imaging_state
             )
+
             cam.capture()
+
+    def _get_slr_images(self):
+        # ToDo: add SLR cameras support
+        # Add parameters to SLR cameras constructor
+        pass
 
     def _actuating(self, *args, **kwargs):
         cmd = 'self.board.active_sensors["' + kwargs['sensor_name'] + '"].' + kwargs['cmd'] + '(**' + str(kwargs['params']) + ')'

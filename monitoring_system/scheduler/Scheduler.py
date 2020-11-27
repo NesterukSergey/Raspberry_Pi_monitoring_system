@@ -60,6 +60,7 @@ class Scheduler:
                 pipeline_name=pipeline['name'],
                 board=self.board
             )
+
             self.scheduler.add_job(func=(lambda executor=pipeline_executor: executor.execute()),
                                    **pipeline['run_interval'])
 
