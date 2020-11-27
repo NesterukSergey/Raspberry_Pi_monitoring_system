@@ -3,7 +3,7 @@ import RPi.GPIO
 from monitoring_system.drivers.sensors.Sensor import Sensor
 
 RPi.GPIO.setwarnings(False)
-RPi.GPIO.setmode(RPi.GPIO.BOARD)
+RPi.GPIO.setmode(RPi.GPIO.BCM)
 RPi.GPIO.cleanup()
 
 
@@ -110,6 +110,7 @@ class DHT11:
 
     def __send_and_sleep(self, output, sleep):
         RPi.GPIO.output(self.__pin, output)
+
         time.sleep(sleep)
 
     def __collect_input(self):

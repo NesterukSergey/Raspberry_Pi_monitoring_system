@@ -16,7 +16,10 @@ class Scheduler:
                                  file=main_config['logs_dir'],
                                  level=main_config['log_level'])
         self.board = None
-        self.scheduler = BlockingScheduler()
+        self.scheduler = BlockingScheduler(
+            logger=self.logger,
+            job_defaults={'misfire_grace_time': 45},
+        )
         self.setup()
         atexit.register(self._exit)
 
