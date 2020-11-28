@@ -3,6 +3,8 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 
 from monitoring_system.utils.csv import write_csv
+from monitoring_system.utils import read_json
+# from alerts import TelegramBot
 
 
 class CameraDriver(ABC):
@@ -13,6 +15,8 @@ class CameraDriver(ABC):
         self.captured_image = None
         self.system_state = system_state
         self._setup()
+        # self.telegram_config = read_json('./configs/api/telegram.json')
+        # self.alert_bot = TelegramBot(self.telegram_config['token'])
 
     @abstractmethod
     def _setup(self):
@@ -27,6 +31,7 @@ class CameraDriver(ABC):
             error_message = 'Unable to take photo from camera ' + str(
                 self.camera_info['id']) + '; ' + str(self.camera_info['device'])
             self.log.error(error_message)
+            # self.alert_bot.send_message(self.telegram_config['alert_chat_id'], error_message)
             raise RuntimeError(error_message)
         else:
             camera_type = str(self.camera_info['type']) + '_' + str(self.camera_info['id'])
