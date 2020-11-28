@@ -44,4 +44,5 @@ class CameraDriver(ABC):
             image_info['device_type'] = self.camera_info['type']
             image_info['device'] = self.camera_info['device']
             image_info['device_id'] = self.camera_info['id']
+            image_info['system_state'] = self.system_state
             write_csv(image_info, str(Path(self.folder).joinpath('images', 'images.csv')))
