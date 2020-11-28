@@ -134,4 +134,5 @@ dmypy.json
 data/
 logs/
 serial_number.txt
+configs/api/telegram.json
 
