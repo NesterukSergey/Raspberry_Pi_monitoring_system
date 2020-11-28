@@ -1,7 +1,4 @@
-#!/usr/bin/python
-
-# import sys
-# print(sys.executable)
+#!/usr/bin/python3.7
 
 from monitoring_system.utils import read_json, get_serial_number, write_txt
 from monitoring_system.scheduler.Scheduler import Scheduler
