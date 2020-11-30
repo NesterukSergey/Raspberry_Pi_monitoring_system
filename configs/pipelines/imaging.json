@@ -29,6 +29,7 @@
     },
     {
       "task_type": "switch_state",
+      "states_list_path": "./configs/imaging_states.json",
       "state_name": "all_on"
     },
     {
@@ -36,6 +37,7 @@
     },
     {
       "task_type": "switch_state",
+      "states_list_path": "./configs/imaging_states.json",
       "state_name": "all_off"
     },
     {

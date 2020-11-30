@@ -65,7 +65,6 @@ class PipelineExecutor:
             'sensors/' + pipeline_name + '_measurements.csv')
         self.cam_config = read_json(self.main_config['cameras_config'])
         self.datetime_prefix, self.datetime_dict = get_time()
-        self.imaging_states = read_json(main_config['imaging_states'])
         self.current_imaging_state = 'unset'
 
     def execute(self):
@@ -107,13 +106,15 @@ class PipelineExecutor:
         time.sleep(interval_seconds)
         self.log.debug('Finish sleeping for ' + str(interval_seconds) + 's')
 
-    def _switch_state(self, state_name):
+    def _switch_state(self, states_list_path, state_name):
         self.current_imaging_state = state_name
 
-        for actuator in self.imaging_states[state_name]:
+        states = read_json(states_list_path)
 
-            if 'bool' in self.imaging_states[state_name][actuator].keys():
-                cmd = 'on' if self.imaging_states[state_name][actuator]['bool'] else 'off'
+        for actuator in states[state_name]:
+
+            if 'bool' in states[state_name][actuator].keys():
+                cmd = 'on' if states[state_name][actuator]['bool'] else 'off'
 
             self._actuating(
                 sensor_name=actuator,
