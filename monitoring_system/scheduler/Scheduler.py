@@ -11,6 +11,8 @@ from monitoring_system.drivers.sensors.Board import Board
 class Scheduler:
     def __init__(self, main_config):
         self.main_config = main_config
+        self.main_config['system_state'] = {}
+
         self.create_dirs()
         self.logger = get_logger(main_config['project_name'],
                                  file=main_config['logs_dir'],
@@ -21,6 +23,7 @@ class Scheduler:
             job_defaults={'misfire_grace_time': 45},
         )
         self.setup()
+        
         atexit.register(self._exit)
 
     def create_dirs(self):

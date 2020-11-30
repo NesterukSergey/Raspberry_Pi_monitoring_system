@@ -122,6 +122,8 @@ class PipelineExecutor:
                 params={}
             )
 
+            self.main_config['system_state'][actuator] = cmd
+
             self.log.info('Switching state to: {}'.format(self.current_imaging_state))
 
     def _get_web_images(self):
