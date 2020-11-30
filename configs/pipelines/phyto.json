@@ -1,0 +1,28 @@
+{
+  "name": "imaging",
+  "run_interval": {
+    "trigger": "cron",
+    "second": null,
+    "minute": "0",
+    "hour": "8",
+    "day_of_week": null
+  },
+  "pipeline": [
+    {
+      "task_type": "switch_state",
+      "states_list_path": "./configs/phyto_states.json",
+      "state_name": "phyto_on",
+      "is_current_imaging_state": false
+    },
+    {
+      "task_type": "sleep",
+      "interval_seconds": 14400
+    },
+    {
+      "task_type": "switch_state",
+      "states_list_path": "./configs/phyto_states.json",
+      "state_name": "phyto_off",
+      "is_current_imaging_state": false
+    }
+  ]
+}

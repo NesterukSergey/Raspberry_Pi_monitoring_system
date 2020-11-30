@@ -30,7 +30,8 @@
     {
       "task_type": "switch_state",
       "states_list_path": "./configs/imaging_states.json",
-      "state_name": "all_on"
+      "state_name": "all_on",
+      "is_current_imaging_state": true
     },
     {
       "task_type": "get_web_images"
@@ -38,7 +39,8 @@
     {
       "task_type": "switch_state",
       "states_list_path": "./configs/imaging_states.json",
-      "state_name": "all_off"
+      "state_name": "all_off",
+      "is_current_imaging_state": true
     },
     {
       "task_type": "get_web_images"

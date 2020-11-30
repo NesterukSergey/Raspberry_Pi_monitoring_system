@@ -106,15 +106,32 @@ class PipelineExecutor:
         time.sleep(interval_seconds)
         self.log.debug('Finish sleeping for ' + str(interval_seconds) + 's')
 
-    def _switch_state(self, states_list_path, state_name):
-        self.current_imaging_state = state_name
+    def _switch_state(self, states_list_path, state_name, is_current_imaging_state):
+
+        if is_current_imaging_state:
+            self.current_imaging_state = state_name
 
         states = read_json(states_list_path)
 
         for actuator in states[state_name]:
 
-            if 'bool' in states[state_name][actuator].keys():
-                cmd = 'on' if states[state_name][actuator]['bool'] else 'off'
+            a = states[state_name][actuator]
+
+            if a['mode'] == 'recovery':
+
+                if actuator in self.main_config['system_state']:
+                    cmd = self.main_config['system_state'][actuator]
+                else:
+                    if a['type'] == 'bool':
+                        cmd = 'off'
+
+            else:
+
+                if a['type'] == 'bool':
+                    cmd = 'on' if bool(a['value']) else 'off'
+
+                if a['mode'] == 'permanent':
+                    self.main_config['system_state'][actuator] = cmd
 
             self._actuating(
                 sensor_name=actuator,
@@ -122,9 +139,7 @@ class PipelineExecutor:
                 params={}
             )
 
-            self.main_config['system_state'][actuator] = cmd
-
-            self.log.info('Switching state to: {}'.format(self.current_imaging_state))
+            self.log.info('Switching state to: {}'.format(state_name))
 
     def _get_web_images(self):
         for c in self.cam_config:

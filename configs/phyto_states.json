@@ -1,0 +1,16 @@
+{
+  "phyto_on": {
+    "phyto": {
+      "mode": "permanent",
+      "type": "bool",
+      "value": true
+    }
+  },
+  "phyto_off": {
+    "phyto": {
+      "mode": "permanent",
+      "type": "bool",
+      "value": false
+    }
+  }
+}

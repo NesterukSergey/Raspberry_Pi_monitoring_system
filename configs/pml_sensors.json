@@ -21,6 +21,11 @@
     "soil_humidity": {
       "type": "analog_read",
       "pin": 3
+    },
+    "phyto": {
+      "type": "switch",
+      "pin": 5,
+      "init": "off"
     }
   }
 }

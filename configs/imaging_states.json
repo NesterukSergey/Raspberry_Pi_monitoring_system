@@ -1,12 +1,26 @@
 {
   "all_on": {
     "alarm_w": {
-      "bool": true
+      "mode": "permanent",
+      "type": "bool",
+      "value": true
+    },
+    "phyto": {
+      "mode": "interrupt",
+      "type": "bool",
+      "value": false
     }
   },
   "all_off": {
     "alarm_w": {
-      "bool": false
+      "mode": "permanent",
+      "type": "bool",
+      "value": false
+    },
+    "phyto": {
+      "mode": "recovery",
+      "type": "bool",
+      "value": ""
     }
   }
 }
