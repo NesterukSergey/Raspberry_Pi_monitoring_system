@@ -1,10 +1,10 @@
 {
-  "name": "imaging",
+  "name": "phyto",
   "run_interval": {
     "trigger": "cron",
     "second": null,
-    "minute": "0",
-    "hour": "8",
+    "minute": "30",
+    "hour": "11",
     "day_of_week": null
   },
   "pipeline": [

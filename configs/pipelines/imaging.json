@@ -24,14 +24,14 @@
       "params": {}
     },
     {
-      "task_type": "sleep",
-      "interval_seconds": 4
-    },
-    {
       "task_type": "switch_state",
       "states_list_path": "./configs/imaging_states.json",
       "state_name": "all_on",
       "is_current_imaging_state": true
+    },
+    {
+      "task_type": "sleep",
+      "interval_seconds": 4
     },
     {
       "task_type": "get_web_images"
@@ -50,6 +50,12 @@
       "sensor_name": "alarm_b",
       "cmd": "off",
       "params": {}
+    },
+    {
+      "task_type": "switch_state",
+      "states_list_path": "./configs/imaging_states.json",
+      "state_name": "phyto_recovery",
+      "is_current_imaging_state": true
     }
   ]
 }

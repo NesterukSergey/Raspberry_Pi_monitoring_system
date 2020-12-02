@@ -16,7 +16,9 @@
       "mode": "permanent",
       "type": "bool",
       "value": false
-    },
+    }
+  },
+  "phyto_recovery": {
     "phyto": {
       "mode": "recovery",
       "type": "bool",
