@@ -3,26 +3,37 @@
   "sensors": {
     "alarm_b": {
       "type": "switch",
-      "pin": 0,
+      "pin": 6,
       "init": "off"
     },
-    "alarm_w": {
+    "phyto": {
       "type": "switch",
       "pin": 6,
       "init": "off"
-    }
-  },
-  "troyka_cap_ext_sensors": {
+    },
+    "light_l": {
+      "type": "switch",
+      "pin": 2,
+      "init": "off"
+    },
+    "light_r": {
+      "type": "switch",
+      "pin": 5,
+      "init": "off"
+    },
     "alarm_y": {
       "type": "switch",
       "pin": 4,
       "init": "off"
+    }
+  },
+  "troyka_cap_ext_sensors": {
+    "alarm_w": {
+      "type": "switch",
+      "pin": 4,
+      "init": "off"
     },
-    "soil_humidity": {
-      "type": "analog_read",
-      "pin": 3
-    },
-    "phyto": {
+    "alarm_g": {
       "type": "switch",
       "pin": 5,
       "init": "off"

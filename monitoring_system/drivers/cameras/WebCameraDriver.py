@@ -11,7 +11,6 @@ class WebCameraDriver(CameraDriver):
         self.alert_bot = TelegramBot(read_json('./configs/api/telegram.json')['token'])
         super().__init__(**kwargs)
 
-
     def _setup(self):
         self.cam = cv2.VideoCapture(self.camera_info['device'])
 
@@ -30,9 +29,14 @@ class WebCameraDriver(CameraDriver):
 
     def capture(self):
         for i in range(self.camera_info['focus_skip'] + 1):
-            ret, self.captured_image = self.cam.read()
-            if not ret:
-                self.captured_image = None
+            time.sleep(0.1)
+            try:
+                ret, self.captured_image = self.cam.read()
+                if not ret:
+                    self.captured_image = None
+            except Exception as e:
+                self.alert_bot.send_message(read_json('./configs/api/telegram.json')['alert_chat_id'],
+                                            'Can not capture image. ' + e)
 
         self.cam.release()
         self._save_image()

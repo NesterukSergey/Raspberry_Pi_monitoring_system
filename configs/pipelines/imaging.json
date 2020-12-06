@@ -10,7 +10,7 @@
   "pipeline": [
     {
       "task_type": "actuator",
-      "sensor_name": "alarm_b",
+      "sensor_name": "alarm_y",
       "cmd": "blink",
       "params": {
         "repeats": 4,
@@ -19,7 +19,7 @@
     },
     {
       "task_type": "actuator",
-      "sensor_name": "alarm_b",
+      "sensor_name": "alarm_y",
       "cmd": "on",
       "params": {}
     },
@@ -47,7 +47,7 @@
     },
     {
       "task_type": "actuator",
-      "sensor_name": "alarm_b",
+      "sensor_name": "alarm_y",
       "cmd": "off",
       "params": {}
     },
