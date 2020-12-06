@@ -1,0 +1,28 @@
+{
+  "name": "stayalive",
+  "run_interval": {
+    "trigger": "cron",
+    "second": "*/2",
+    "minute": null,
+    "hour": null,
+    "day_of_week": null
+  },
+  "pipeline": [
+    {
+      "task_type": "actuator",
+      "sensor_name": "alarm_g",
+      "cmd": "on",
+      "params": {}
+    },
+    {
+      "task_type": "sleep",
+      "interval_seconds": 1
+    },
+    {
+      "task_type": "actuator",
+      "sensor_name": "alarm_g",
+      "cmd": "off",
+      "params": {}
+    }
+  ]
+}
