@@ -27,12 +27,13 @@ class CameraDriver(ABC):
             error_message = 'Unable to take photo from camera ' + str(
                 self.camera_info['id']) + '; ' + str(self.camera_info['device'])
             self.log.error(error_message)
+            self._send_alert(error_message)
             # raise RuntimeError(error_message)
         else:
             camera_type = str(self.camera_info['type']) + '_' + str(self.camera_info['id'])
 
             img_path = str(Path(self.folder).joinpath('images', camera_type, self.system_state))
-            file_name = '{}_{}_{}.png'.format(self.datetime_prefix, camera_type, self.system_state)
+            file_name = '{}_{}_{}.jpg'.format(self.datetime_prefix, camera_type, self.system_state)
             save_path = str(Path(img_path).joinpath(file_name))
 
             Path(img_path).mkdir(parents=True, exist_ok=True)

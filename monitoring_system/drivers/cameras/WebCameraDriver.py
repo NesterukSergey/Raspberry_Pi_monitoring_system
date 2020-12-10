@@ -23,6 +23,7 @@ class WebCameraDriver(CameraDriver):
 
         self.cam.set(cv2.CAP_PROP_FRAME_WIDTH, self.camera_info['width'])
         self.cam.set(cv2.CAP_PROP_FRAME_HEIGHT, self.camera_info['height'])
+        self.cam.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'))
 
         # Take some time for camera initialization
         time.sleep(0.1)
@@ -39,4 +40,6 @@ class WebCameraDriver(CameraDriver):
                                             'Can not capture image. ' + e)
 
         self.cam.release()
+        cv2.destroyAllWindows()
+        del self.cam
         self._save_image()
