@@ -13,10 +13,10 @@ class Scheduler:
         self.main_config = main_config
         self.main_config['system_state'] = {}
 
-        self.create_dirs()
         self.logger = get_logger(main_config['project_name'],
                                  file=main_config['logs_dir'],
                                  level=main_config['log_level'])
+        self.create_dirs()
         self.board = None
         self.scheduler = BlockingScheduler(
             logger=self.logger,
@@ -34,9 +34,9 @@ class Scheduler:
             Path(self.main_config['data_dir']).joinpath('sensors/').mkdir(parents=True, exist_ok=True)
 
             cameras_config = read_json(self.main_config['cameras_config'])
-            for camera in cameras_config:
+            for web_camera in cameras_config['web_cams']:
                 Path(self.main_config['data_dir'])\
-                    .joinpath('images/' + str(camera['type'] + '_' + str(camera['id'])))\
+                    .joinpath('images/' + str(web_camera['type'] + '_' + str(web_camera['id'])))\
                     .mkdir(parents=True, exist_ok=True)
         except Exception as e:
             self.logger.error('Error creating file structure!')

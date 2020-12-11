@@ -1,6 +1,8 @@
 import cv2
 from abc import ABC, abstractmethod
 from pathlib import Path
+from alerts import TelegramBot
+from monitoring_system.utils import read_json
 
 from monitoring_system.utils.csv import write_csv
 
@@ -8,6 +10,7 @@ from monitoring_system.utils.csv import write_csv
 class CameraDriver(ABC):
     def __init__(self, system_state='normal', **kwargs):
         super().__init__()
+        self.alert_bot = TelegramBot(read_json('./configs/api/telegram.json')['token'])
         self.__dict__.update(kwargs)
         self.cam = None
         self.captured_image = None
@@ -49,4 +52,4 @@ class CameraDriver(ABC):
             write_csv(image_info, str(Path(self.folder).joinpath('images', 'images.csv')))
 
     def _send_alert(self, message):
-        self.alert_bot.send_message(self.telegram_config['alert_chat_id'], message)
+        self.alert_bot.send_message(read_json('./configs/api/telegram.json')['alert_chat_id'], message)

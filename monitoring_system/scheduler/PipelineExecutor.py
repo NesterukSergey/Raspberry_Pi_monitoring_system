@@ -142,7 +142,7 @@ class PipelineExecutor:
             self.log.info('Switching state to: {}'.format(state_name))
 
     def _get_web_images(self):
-        for c in self.cam_config:
+        for c in self.cam_config['web_cams']:
             cam = WebCameraDriver(
                 camera_info=c,
                 folder=self.main_config['data_dir'],
