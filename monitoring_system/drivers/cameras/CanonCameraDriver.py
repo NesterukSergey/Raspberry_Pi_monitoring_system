@@ -38,7 +38,7 @@ class CanonCameraDriver(CameraDriver):
                     self.captured_image = None
                     self._send_alert('Can not capture image with SLR camera: ' + str(self.camera_info['device']))
             except Exception as e:
-                self._send_alert(e)
+                self._send_alert(str(e))
                 return
 
         img_path, save_path = self._get_save_path()
