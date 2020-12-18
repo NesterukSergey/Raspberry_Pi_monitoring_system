@@ -24,5 +24,13 @@
     "height": 1080,
     "focus_skip": 1
   }
-]
+],
+  "canon_cams": [
+    {
+    "id": "top",
+    "type": "Canon",
+    "device": "5c65819053084eb8bdc20ec0f058e783",
+    "focus_skip": 0
+    }
+  ]
 }

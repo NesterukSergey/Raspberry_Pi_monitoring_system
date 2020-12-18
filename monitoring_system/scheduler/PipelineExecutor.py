@@ -92,6 +92,7 @@ class PipelineExecutor:
             'sleep': self._sleep,
             'switch_state': self._switch_state,
             'get_web_images': self._get_web_images,
+            'get_canon_images': self._get_canon_images,
             'get_dummy': self._get_dummy,
             'actuator': self._actuating,
             'sensor': self._sensing,
@@ -144,6 +145,19 @@ class PipelineExecutor:
     def _get_web_images(self):
         for c in self.cam_config['web_cams']:
             cam = WebCameraDriver(
+                camera_info=c,
+                folder=self.main_config['data_dir'],
+                log=self.log,
+                datetime_prefix=self.datetime_prefix,
+                datetime_dict=self.datetime_dict,
+                system_state=self.current_imaging_state
+            )
+
+            cam.capture()
+
+    def _get_canon_images(self):
+        for c in self.cam_config['canon_cams']:
+            cam = CanonCameraDriver(
                 camera_info=c,
                 folder=self.main_config['data_dir'],
                 log=self.log,

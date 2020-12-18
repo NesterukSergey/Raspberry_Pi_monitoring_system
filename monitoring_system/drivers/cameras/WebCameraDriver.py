@@ -38,4 +38,5 @@ class WebCameraDriver(CameraDriver):
         self.cam.release()
         cv2.destroyAllWindows()
         del self.cam
-        self._save_image()
+
+        self._save_all()

@@ -1,1 +1,2 @@
 from monitoring_system.drivers.cameras.WebCameraDriver import WebCameraDriver
+from monitoring_system.drivers.cameras.CanonCameraDriver import CanonCameraDriver
